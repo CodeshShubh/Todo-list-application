@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-
+import React, { useEffect, useState } from 'react'
 const Home = () => {
     const [title, setTitle] = useState("");
     const [discription, setDiscription] = useState("");
     const [getData, setGetData] = useState([]);
+    
 
     const onSubmit = (e) => {
         e.preventDefault();
@@ -18,6 +18,12 @@ console.log(getData)
         });
         setGetData(updateData);
     }
+
+    useEffect(() => {
+    document.title = `Tasks(${getData.length})`
+    
+    }, [getData])
+    
 
     return (
         <main>
